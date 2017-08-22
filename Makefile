@@ -32,7 +32,7 @@ test: $(TARGET)
 
 
 $(TARGET): $(OBJ)
-	$(CXX) $(CXXFLAGS) $(INC) -o $@ $^ $(LIB)
+	$(CXX) $(CXXFLAGS) $(INC) $(LIB) -o $@ $^ 
 
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
