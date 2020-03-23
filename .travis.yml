@@ -22,14 +22,15 @@ install:
   - sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-5 90
 
 script:
-  #Compile without optimization and with coverage
-  - make test
-  #Run the program
-  - cd bin/
-  - ./application test
+  - mkdir build
+  - cd build
+  - cmake ..
+  - make install
+  - cd ../bin
+  - ./executable 42
   - cd ..
   #Codecov
   - ./.get_code_cov.sh
 
-after_success: 
-  - bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
+after_success:
+  # - bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
