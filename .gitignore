@@ -1,12 +1,11 @@
 *.DS_Store
 .depend
+coverage.info
 
-#Ignore
-*.sublime-project
-*.sublime-workspace
+build/
 
 #Ignore executables
-bin/*
+bin/executable
 
 # Ignore build files
 *.o
