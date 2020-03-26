@@ -4,6 +4,7 @@ sudo: required
 
 compiler:
   - gcc
+  - clang
 
 os:
   - linux
@@ -29,9 +30,9 @@ script:
   - mkdir -p build
   - cd build
   - cmake -DCODE_COVERAGE=ON -DCMAKE_BUILD_TYPE=Debug ..
-  - make install
-  - cd ../bin
-  - ./executable 42
+  - cmake --build .
+  - cmake --install .
+  - ctest
   - cd ..
 
 after_success:

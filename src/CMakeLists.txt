@@ -1,13 +1,12 @@
-file(GLOB SOURCES "./*.cpp")
+file(GLOB SOURCES ${SRC_DIR}/*.cpp)
 
-add_executable( executable ${SOURCES})
+add_executable(executable ${SOURCES})
 
-# # Linking up all libraries (includes the coverage settings set by 'example' library)
-# target_link_libraries(executable PRIVATE example)
+target_link_libraries(executable
+	PUBLIC coverage_config 
+	PUBLIC libphys)
 
-# Include code-coverage settings:
-target_link_libraries(executable PUBLIC coverage_config)
+add_test(NAME executable_test COMMAND executable)
 
 install(TARGETS executable DESTINATION ${BIN_DIR})
 
-# add_test(NAME executable_test COMMAND executable)

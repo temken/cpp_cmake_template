@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-void PrintSomething(char *arg)
+void PrintSomething(std::string str)
 {
-	std::cout <<"Hello " <<arg <<std::endl;
+	std::cout <<"Hello " <<str <<std::endl;
 }
